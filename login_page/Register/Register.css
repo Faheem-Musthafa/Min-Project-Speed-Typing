@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+
+  
+  .left-panel {
+    flex: 1;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .right-panel {
+    flex: 1;
+    background-color: #BFBFBF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .register-container {
+    background-color: #d9d9d9;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 475px;
+  }
+  
+  .register-header {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+/** Register part**/
+
+  .input-row {
+    display: flex;
+    gap: 10px; /* slightly more horizontal space between first and last name */
+    margin-bottom: 10px; /* vertical gap below the row */
+  }
+  
+  .input-group {
+    position: relative;
+    flex: 1;
+    margin-bottom: 10px; /* vertical gap between stacked inputs */
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 16px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 12px 12px 12px 40px; /* left padding for icon */
+    border: none;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+  }
+  
+  
+  
+  .form-footer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 10px 0 20px;
+    flex-wrap: wrap;
+  }
+  
+  .checkbox-container input {
+    margin-right: 8px;
+  }
+  
+  .checkbox-container label {
+    font-size: 14px;
+  }
+  
+  .checkbox-container a {
+    color: #4b0099;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .register-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+  }
+  
+  .register-btn:hover {
+    background-color: #555;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #ccc;
+    margin: 25px 0;
+  }
+  
+  .google-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .login-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .login-link {
+    color: #4b0099;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .app-logo {
+    font-size: 60px;
+    font-weight: bold;
+    margin-right: 45vh;
+    margin-bottom: 30px;
+  }
+  
+  .app-tagline {
+    font-size: 30px;
+    margin-right: 32.5vh;
+    margin-bottom: 10px;
+  }
+  
+  .app-description {
+    font-size: 24px;
+    margin-right: 49.5vh;
+  }
+  

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Typooo - Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="register.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="left-panel">
+    <div>
+      <h1 class="app-logo">Typooo</h1>
+      <p class="app-tagline">How Fast Can You Type?</p>
+      <p class="app-description">Find Out Now!</p>
+    </div>
+  </div>
+
+  <div class="right-panel">
+    <div class="register-container">
+      <h2 class="register-header">Create Account</h2>
+      
+      <!-- Registration form -->
+      <form id="register-form">
+        <div class="input-row">
+          <div class="input-group">
+            <i class="fa fa-user input-icon"></i>
+            <input type="text" class="input-field" id="first-name" name="firstName" placeholder="First name" />
+          </div>
+          <div class="input-group">
+            <i class="fa fa-user input-icon"></i>
+            <input type="text" class="input-field" id="last-name" name="lastName" placeholder="Last name" />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <i class="fa fa-user-circle input-icon"></i>
+          <input type="text" class="input-field" id="username" name="username" placeholder="Username" />
+        </div>
+
+        <div class="input-group">
+          <i class="fa fa-envelope input-icon"></i>
+          <input type="email" class="input-field" id="email" name="email" placeholder="Email address" required />
+        </div>
+
+        <div class="input-group">
+          <i class="fa fa-lock input-icon"></i>
+          <input type="password" class="input-field" id="password" name="password" placeholder="Create a password" required />
+        </div>
+
+        <div class="form-footer">
+          <div class="checkbox-container">
+            <input type="checkbox" id="terms" required />
+            <label for="terms">I agree to the <a href="#">Terms & Privacy Policy</a></label>
+          </div>
+        </div>
+
+        <button type="submit" id="register-btn" class="register-btn">Register</button>
+      </form>
+
+      <div class="divider"></div>
+
+      <button class="google-btn">
+        <i class="fab fa-google"></i>
+        Sign up with Google
+      </button>
+
+      <p class="login-text">Already have an account? <a href="../Login/login.html" class="login-link">Log in</a></p>
+    </div>
+  </div>
+
+  <!-- Firebase & App JS -->
+  <script type="module" src="register.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.left-panel {
+  flex: 1;
+  background-color: #a0a0a0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.right-panel {
+  flex: 1;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.login-container {
+  background-color: #D9D9D9;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 475px;
+}
+
+.login-header {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+}
+
+
+.input-group {
+  position: relative;
+  margin: 15px 0;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.checkbox-container input {
+  margin-right: 8px;
+}
+
+.checkbox-container label {
+  font-weight: 500;
+}
+
+.forgot-password {
+  color: #4b0099;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #555;
+}
+
+.divider {
+  height: 1px;
+  background-color: #d0d0d0;
+  width: 100%;
+  margin: 25px 0;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.signup-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.signup-link {
+  color: #4b0099;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.app-logo {
+  font-size: 60px;
+  font-weight: bold;
+  margin-right: 52vh;
+  margin-bottom: 30px;
+}
+
+.app-tagline {
+  font-size: 30px;
+  text-align: center;
+  margin-right: 40vh;
+  max-width: 80%;
+}
+
+.app-description {
+  font-size: 25px;
+  text-align: center;
+  margin-right: 56.5vh;
+  max-width: 80%;
+}
