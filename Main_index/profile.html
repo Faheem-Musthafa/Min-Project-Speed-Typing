@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <title>Typooo - User Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Firebase SDK imports -->
+    <script type="module" src="firebase-config.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Typooo</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="../login_page/Login/login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="profile-main">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="profile-info">
+                <h2 id="profile-username">Username</h2>
+                <p id="profile-joined">Joined: <span>January 1, 2023</span></p>
+            </div>
+        </div>
+        
+        <div class="profile-stats-container">
+            <div class="profile-stats-card">
+                <h3>Typing Statistics</h3>
+                <div class="profile-stats-grid">
+                    <div class="profile-stat">
+                        <div class="profile-stat-value" id="avg-wpm">0</div>
+                        <div class="profile-stat-label">Average WPM</div>
+                    </div>
+                    <div class="profile-stat">
+                        <div class="profile-stat-value" id="avg-accuracy">0%</div>
+                        <div class="profile-stat-label">Average Accuracy</div>
+                    </div>
+                    <div class="profile-stat">
+                        <div class="profile-stat-value" id="tests-taken">0</div>
+                        <div class="profile-stat-label">Tests Taken</div>
+                    </div>
+                    <div class="profile-stat">
+                        <div class="profile-stat-value" id="best-wpm">0</div>
+                        <div class="profile-stat-label">Best WPM</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-stats-card">
+                <h3>Performance Over Time</h3>
+                <div class="chart-container">
+                    <canvas id="performance-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile-history-container">
+            <h3>Test History</h3>
+            <div class="profile-history-filters">
+                <button class="history-filter active" data-filter="all">All</button>
+                <button class="history-filter" data-filter="15">15s</button>
+                <button class="history-filter" data-filter="30">30s</button>
+                <button class="history-filter" data-filter="60">60s</button>
+            </div>
+            <div class="profile-history-table-container">
+                <table class="profile-history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>WPM</th>
+                            <th>Accuracy</th>
+                            <th>Time</th>
+                            <th>Characters</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-table-body">
+                        <!-- Test history will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Typooo - Created for educational purposes</p>
+    </footer>
+    
+    <script type="module" src="profile.js"></script>
+</body>
+</html>

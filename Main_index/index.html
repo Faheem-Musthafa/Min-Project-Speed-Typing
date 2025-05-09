@@ -3,24 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=yes">
-    <title>HippoType</title>
+    <title>Typooo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Firebase SDK imports -->
+    <script type="module" src="firebase-config.js"></script>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <h1>Typooo</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../login_page/Login/login.html">Login</a></li>
+                <li><a href="../login_page/Register/Register.html">Sign Up</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
     <main>
-        <h1>HippoType</h1>
-        <div id="header">
-            <div id="info"></div>
-            <div id="buttons">
-                <button id="newGameBtn">New game</button>
+        <div class="config-container">
+            <div class="config-item">
+                <span>Time:</span>
+                <div class="time-options">
+                    <button class="time-option active" data-time="15">15s</button>
+                    <button class="time-option" data-time="30">30s</button>
+                    <button class="time-option" data-time="60">60s</button>
+                </div>
+            </div>
+            <div class="config-item">
+                <span>Theme:</span>
+                <div class="theme-options">
+                    <button class="theme-option active" data-theme="default">Default</button>
+                    <button class="theme-option" data-theme="dark">Dark</button>
+                    <button class="theme-option" data-theme="light">Light</button>
+                </div>
             </div>
         </div>
+        
+        <div id="stats">
+            <div class="stat-item">
+                <div class="stat-label">wpm</div>
+                <div class="stat-value" id="wpm">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">acc</div>
+                <div class="stat-value" id="accuracy">0%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">time</div>
+                <div class="stat-value" id="info">30</div>
+            </div>
+        </div>
+        
         <div id="game" tabindex="0">
             <div id="words"></div>
             <div id="cursor"></div>
             <div id="focus-error">Click here to focus</div>
         </div>
+        
+        <div id="result-container" class="hidden">
+            <div class="result-box">
+                <h2>Test Results</h2>
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <div class="result-stat-label">WPM</div>
+                        <div class="result-stat-value" id="result-wpm">0</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-stat-label">Accuracy</div>
+                        <div class="result-stat-value" id="result-accuracy">0%</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-stat-label">Characters</div>
+                        <div class="result-stat-value" id="result-characters">0/0</div>
+                    </div>
+                </div>
+                <button id="newGameBtn">New Test</button>
+            </div>
+        </div>
     </main>
-    <script src="script.js"></script>
+    
+    <footer>
+        <p>MonkeyType Clone - Created for educational purposes</p>
+    </footer>
+    
+    <script type="module" src="script.js"></script>
+    <script type="module">
+        // Check authentication state on page load
+        import { onAuthChange } from './firebase-config.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            onAuthChange(user => {
+                const loginLink = document.querySelector('a[href="../login_page/Login/login.html"]');
+                const signUpLink = document.querySelector('a[href="../login_page/Register/Register.html"]');
+                const profileLink = document.querySelector('a[href="profile.html"]');
+                
+                if (user) {
+                    // User is logged in
+                    loginLink.textContent = 'Logout';
+                    loginLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Clear session storage
+                        sessionStorage.removeItem('user');
+                        
+                        import('./firebase-config.js').then(module => {
+                            module.logoutUser().then(() => {
+                                window.location.href = '../login_page/Login/login.html';
+                            });
+                        });
+                    });
+                    
+                    // Hide sign up link when logged in
+                    signUpLink.parentElement.style.display = 'none';
+                } else {
+                    // User is not logged in
+                    loginLink.textContent = 'Login';
+                    signUpLink.parentElement.style.display = 'list-item';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

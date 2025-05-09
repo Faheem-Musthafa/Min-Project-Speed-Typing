@@ -1,11 +1,12 @@
 // Firebase imports
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
 import {
   getAuth,
   signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+  sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
 
 // Firebase config
 const firebaseConfig = {
@@ -22,31 +23,40 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 // Login button event
 const loginBtn = document.getElementById("log");
 
-loginBtn.addEventListener("click", function (event) {
+loginBtn.addEventListener("click", async function (event) {
   event.preventDefault(); // Prevent form reload
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  
+  if (!email || !password) {
+    alert("Please enter both email and password");
+    return;
+  }
 
-  // Firebase login
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      //alert("Login successful! 🎉");
-      console.log("Logged in as:", user.email);
+  try {
+    // Firebase login
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    console.log("Logged in as:", user.email);
 
-      // Redirect to main app page
-      window.location.href = "../index.html"; // Change this to your main app page
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      alert("Login failed: " + errorMessage);
-      console.error("Login error:", error);
-    });
+    // Redirect to main app page
+    window.location.href = "../../Main_index/index.html";
+    // Store user info in session storage for persistence
+    sessionStorage.setItem("user", JSON.stringify({
+      uid: user.uid,
+      email: user.email
+    }));
+  } catch (error) {
+    const errorMessage = error.message;
+    alert("Login failed: " + errorMessage);
+    console.error("Login error:", error);
+  }
 });
 
 // Show/Hide Password Toggle

@@ -1,0 +1,137 @@
+/* Profile Page Styles */
+.profile-main {
+    padding: 2rem;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--sub-alt-color);
+}
+
+.profile-avatar {
+    font-size: 4rem;
+    color: var(--primaryColor);
+    margin-right: 1.5rem;
+}
+
+.profile-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.profile-info p {
+    color: var(--sub-color);
+    font-size: 0.9rem;
+}
+
+.profile-stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .profile-stats-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.profile-stats-card {
+    background-color: var(--sub-alt-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.profile-stats-card h3 {
+    color: var(--primaryColor);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.profile-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.profile-stat {
+    text-align: center;
+}
+
+.profile-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.profile-stat-label {
+    color: var(--sub-color);
+    font-size: 0.9rem;
+}
+
+.chart-container {
+    width: 100%;
+    height: 250px;
+}
+
+.profile-history-container {
+    background-color: var(--sub-alt-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile-history-container h3 {
+    color: var(--primaryColor);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.profile-history-filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.profile-history-table-container {
+    overflow-x: auto;
+}
+
+.profile-history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-history-table th,
+.profile-history-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--sub-color);
+}
+
+.profile-history-table th {
+    color: var(--primaryColor);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.profile-history-table td {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.profile-history-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Add active class for nav */
+nav a.active {
+    color: var(--primaryColor);
+    font-weight: 500;
+}

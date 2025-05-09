@@ -1,107 +1,379 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
-:root{
-    --bgColor: #333;
-    --textPrimary: #fff;
-    --textSecondary: #666;
-    --primaryColor: #fd4;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    /* Default theme */
+    --bgColor: #323437;
+    --textPrimary: #e2b714;
+    --textSecondary: #646669;
+    --primaryColor: #e2b714;
+    --errorColor: #ca4754;
+    --mainColor: #e2b714;
+    --caret: #e2b714;
+    --sub-color: #646669;
+    --sub-alt-color: #2c2e31;
+    --text-color: #d1d0c5;
+    --error-color: #ca4754;
+    --error-extra-color: #7e2a33;
+    --colorful-error-color: #ca4754;
+    --colorful-error-extra-color: #7e2a33;
 }
-body{
+
+/* Dark theme */
+[data-theme="dark"] {
+    --bgColor: #232323;
+    --textPrimary: #e2b714;
+    --textSecondary: #4d4d4d;
+    --primaryColor: #e2b714;
+    --errorColor: #ca4754;
+    --mainColor: #e2b714;
+    --caret: #e2b714;
+    --sub-color: #4d4d4d;
+    --sub-alt-color: #2c2c2c;
+    --text-color: #d1d0c5;
+    --error-color: #ca4754;
+    --error-extra-color: #7e2a33;
+    --colorful-error-color: #ca4754;
+    --colorful-error-extra-color: #7e2a33;
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --bgColor: #f0f0f0;
+    --textPrimary: #e2b714;
+    --textSecondary: #999999;
+    --primaryColor: #e2b714;
+    --errorColor: #ca4754;
+    --mainColor: #e2b714;
+    --caret: #e2b714;
+    --sub-color: #999999;
+    --sub-alt-color: #d9d9d9;
+    --text-color: #323437;
+    --error-color: #ca4754;
+    --error-extra-color: #7e2a33;
+    --colorful-error-color: #ca4754;
+    --colorful-error-extra-color: #7e2a33;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Roboto', sans-serif;
-    background-color:var(--bgColor);
-    color: var(--textPrimary);
-    font-size: 1.4rem;
+    background-color: var(--bgColor);
+    color: var(--text-color);
+    font-size: 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-main{
-    width: 600px;
-    margin: 50px auto;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--sub-alt-color);
 }
-h1{
+
+.logo h1 {
+    color: var(--primaryColor);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
     color: var(--primaryColor);
 }
-h1 svg{
-    width: 40px;
-    fill: var(--primaryColor);
+
+main {
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-#header{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 20px 6px 30px;
+
+.config-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
 }
-#buttons{
-    text-align: right;
+
+.config-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
-#info{
-    color: var(--primaryColor);
+
+.config-item span {
+    color: var(--sub-color);
+    font-size: 0.9rem;
 }
-button{
-    background: rgba(255,255,255,.2);
-    border:0;
-    color: rgba(255,255,255,.5);
-    padding: 5px 20px;
-    border-radius: 5px;
+
+.time-options, .theme-options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+button {
+    background: var(--sub-alt-color);
+    border: none;
+    color: var(--sub-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.3rem;
     cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
 }
-div#game{
-    line-height:35px;
-    height:105px;
+
+button:hover {
+    background: var(--sub-color);
+    color: var(--text-color);
+}
+
+button.active {
+    background: var(--primaryColor);
+    color: var(--bgColor);
+}
+
+#stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    color: var(--sub-color);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+#game {
+    width: 100%;
+    max-width: 800px;
+    line-height: 2rem;
+    height: 150px;
     overflow: hidden;
     position: relative;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--sub-alt-color);
 }
-div#game:focus{
-    outline:0;
+
+#game:focus {
+    outline: none;
 }
-#words{
+
+#words {
     filter: blur(5px);
-    color: var(--textSecondary);
+    color: var(--sub-color);
+    font-size: 1.2rem;
+    transition: filter 0.3s;
 }
-#game:focus #words{
+
+#game:focus #words {
     filter: blur(0);
 }
+
 #focus-error {
     position: absolute;
     inset: 0;
-    text-align: center;
-    padding-top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--sub-color);
+    font-size: 1.2rem;
 }
-#game:focus #focus-error{
-    display:none;
+
+#game:focus #focus-error {
+    display: none;
 }
-div.word{
+
+.word {
     display: inline-block;
     font-family: 'Roboto Mono', monospace;
-    margin: 0 5px;
+    margin: 0 0.3rem;
 }
-.letter.correct{
-    color: #fff;
+
+.letter {
+    position: relative;
 }
-.letter.incorrect{
-    color: #f55;
+
+.letter.correct {
+    color: var(--text-color);
 }
-@keyframes blink{
-    0%{opacity: 1;}
-    50%{opacity: 0;}
-    100%{opacity: 1;}
+
+.letter.incorrect {
+    color: var(--error-color);
 }
-#cursor{
-    display:none;
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+#cursor {
+    display: none;
     width: 2px;
     height: 1.6rem;
-    background: var(--primaryColor);
+    background: var(--caret);
     position: fixed;
     top: 198px;
     left: 18px;
-    animation: blink .3s infinite;
+    animation: blink 1s infinite;
+    z-index: 10;
 }
-#game:focus #cursor{
+
+#game:focus #cursor {
     display: block;
 }
-#game.over #words{
-    opacity: .5;
+
+#game.over #words {
+    opacity: 0.5;
     filter: blur(0px);
 }
-#game.over:focus #cursor{
-    display:none;
+
+#game.over:focus #cursor {
+    display: none;
 }
+
 #game.over #focus-error {
     display: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#result-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.result-box {
+    background: var(--bgColor);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.result-box h2 {
+    color: var(--primaryColor);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.result-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-stat-label {
+    color: var(--sub-color);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.result-stat-value {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.result-box button {
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background: var(--primaryColor);
+    color: var(--bgColor);
+}
+
+.result-box button:hover {
+    opacity: 0.9;
+}
+
+footer {
+    padding: 1rem;
+    text-align: center;
+    color: var(--sub-color);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--sub-alt-color);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .config-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    #stats {
+        gap: 1rem;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    #game {
+        height: 120px;
+    }
 }
