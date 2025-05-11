@@ -1,17 +1,15 @@
 // Firebase Configuration and Utility Functions
 
-// Import Firebase modules
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+// Import Firebase services from shared configuration
+import { app, auth, db } from "../firebase-shared.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
 import { 
-  getAuth, 
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
 import { 
-  getFirestore, 
   collection, 
   addDoc, 
   getDocs, 
@@ -24,22 +22,8 @@ import {
   updateDoc
 } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDBmd3_69bH8Bfoo3gw_GjnCPs-WrpRqdI",
-  authDomain: "typooo.firebaseapp.com",
-  projectId: "typooo",
-  storageBucket: "typooo.appspot.com",
-  messagingSenderId: "564981970157",
-  appId: "1:564981970157:web:59da8aa939678e102d08e4",
-  measurementId: "G-VGKXYB0LGX",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize analytics
 const analytics = getAnalytics(app);
-const auth = getAuth(app);
-const db = getFirestore(app);
 
 // Authentication functions
 export function getCurrentUser() {

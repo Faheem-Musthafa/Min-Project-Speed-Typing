@@ -8,6 +8,9 @@ import {
     onAuthChange
 } from './firebase-config.js';
 
+// Import shared Firebase configuration if needed directly
+// import { auth, db } from '../firebase-shared.js';
+
 // Default user data structure
 let userData = {
     username: 'Guest',
